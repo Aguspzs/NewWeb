@@ -1,0 +1,211 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-blue">
+  <div class="container-fluid d-flex align-items-center pr-0">
+    <div class="navbar-wrapper">
+      <div class="navbar-minimize d-inline">
+        <button
+        
+          class="minimize-sidebar btn btn-link btn-just-icon"
+          tooltip="Sidebar toggle"
+          placement="right"
+          (click)="minimizeSidebar()"
+        >
+          <i class="tim-icons icon-align-center visible-on-sidebar-regular">
+          </i>
+          <i class="tim-icons icon-bullet-list-67 visible-on-sidebar-mini"> </i>
+        </button>
+      </div>
+      <div class="navbar-toggle d-inline">
+        <button  class="navbar-toggler" type="button" (click)="sidebarOpen()">
+          <span class="navbar-toggler-bar bar1"> </span>
+          <span class="navbar-toggler-bar bar2"> </span>
+          <span class="navbar-toggler-bar bar3"> </span>
+        </button>
+      </div>
+      <a class="navbar-brand" routerLink="/dashboard"
+        >Casino Management and Control System</a
+      >
+    </div>
+    <button
+    
+      aria-label="Toggle navigation"
+      class="navbar-toggler d-none"
+      [attr.aria-expanded]="!isCollapsed"
+      (click)="collapse()"
+      id="navigation"
+      type="button"
+    >
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+    </button>
+
+    <ul class="d-flex justify-content-center align-items-center mb-0" *ngIf="isLogged == true">
+      <li class="d-block d-lg-flex justify-content-between align-items-center">
+        <h6 class="d-none d-lg-block m-0 user-name-desktop mr-2">
+          {{ user[1] }} {{ user[2] }}
+        </h6>
+        <div class="dropdown dropdown-user" dropdown>
+          <a
+            class="dropdown-toggle"
+            id="dropdownMenuButton"
+            (click)="userMenu = !userMenu; $event.stopPropagation()"
+          >
+            <div
+              class="m-0 container-icon-picture d-flex justify-content-center align-items-center"
+            >
+              <div class="icon-picture">
+                {{ user[3] | uppercase }}
+              </div>
+            </div>
+          </a>
+          <div
+            *ngIf="userMenu"
+            aria-labelledby="dropdownMenuButton"
+            class="dropdown-menu fade-in"
+          >
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="fas fa-user pb-1" style="font-size: 10px"></i>
+              <small *ngIf="user"> {{ user[0] }} </small>
+            </div>
+            <hr />
+
+            <a class="dropdown-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-left mr-3">
+                  <i class="fas fa-paint-brush"></i>
+                  Tema
+                </div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label
+                    class="btn btn-sm btn-danger btn-simple m-0"
+                    style="margin: 0 !important"
+                    (click)="changeDashboardColor('black-content')"
+                    [ngClass]="{ active: darkMode === true }"
+                  >
+                    <input checked="checked" name="options" type="radio" />
+                    <span class="d-xl-block text-center">
+                      <i class="fas fa-moon mr-0" style="font-size: 12px"></i>
+                    </span>
+                  </label>
+                  <label
+                    style="margin: 0 !important"
+                    class="btn btn-sm btn-danger btn-simple m-0"
+                    (click)="changeDashboardColor('white-content')"
+                    [ngClass]="{ active: darkMode === false }"
+                  >
+                    <input class="" name="options" type="radio" />
+
+                    <span class="d-xl-block text-center">
+                      <i class="fas fa-sun mr-0" style="font-size: 12px"></i>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </a>
+            <hr />
+            <a class="dropdown-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-left mr-3">
+                  <i class="fas fa-language"></i>
+                  Idioma
+                </div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label
+                    class="btn btn-sm btn-danger btn-simple active m-0 flag-label"
+                    style="margin: 0 !important"
+                    (click)="changeLang('es')"
+                    [ngClass]="{ active: langES === true }"
+                  >
+                    <input checked="checked" name="options" type="radio" />
+
+                    <span class="d-xl-block">
+                      <img
+                        src="../../../assets/img/spain.png"
+                        alt="spain flag"
+                      />
+                    </span>
+                  </label>
+                  <label
+                    style="margin: 0 !important"
+                    class="btn btn-sm btn-danger btn-simple m-0 flag-label"
+                    (click)="changeLang('en')"
+                    [ngClass]="{ active: langEN === true }"
+                  >
+                    <input class="" name="options" type="radio" />
+
+                    <span class="">
+                      <img
+                        src="../../../assets/img/estados-unidos.png"
+                        alt="spain flag"
+                      />
+                    </span>
+                  </label>
+                  <label
+                    style="margin: 0 !important"
+                    class="btn btn-sm btn-danger btn-simple m-0 flag-label"
+                    (click)="changeLang('pt')"
+                    [ngClass]="{ active: langPT === true }"
+                  >
+                    <input class="" name="options" type="radio" />
+
+                    <span class="">
+                      <img
+                        src="../../../assets/img/brazil.png"
+                        alt="spain flag"
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </a>
+            <hr />
+            <a class="dropdown-item">
+              <div
+                class="d-flex justify-content-between align-items-center mr-2"
+              >
+                <i class="fas fa-lock"></i>
+                Cambiar contraseña
+              </div>
+            </a>
+            <a class="dropdown-item" (click)="logOut()">
+              <div class="d-flex justify-content-between align-items-center">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar sesión
+              </div>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div
+  aria-hidden="true"
+  aria-labelledby="searchModal"
+  bsModal
+  class="modal modal-search fade"
+  id="searchModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <input
+          class="form-control"
+          id="inlineFormInputGroup"
+          placeholder="SEARCH"
+          type="text"
+        />
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <i class="tim-icons icon-simple-remove"> </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

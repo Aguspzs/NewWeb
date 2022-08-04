@@ -1,0 +1,54 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  padding: 1.5rem !important;
+}
+.title {
+  margin-top: 80px;
+}
+.img-thumbnail {
+  background-color: transparent;
+  width: 80px;
+}
+.btn {
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+p {
+  font-weight: lighter;
+}
+label {
+  text-transform: uppercase;
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.logo-title {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.header-white{
+  background-color: #CBCBD9 !important;
+}
+.img-white{
+  width: 180px!important;
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+  .title {
+    margin-top: 0;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .btn-block {
+    width: 40%;
+  }
+}

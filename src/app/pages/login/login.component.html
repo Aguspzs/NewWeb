@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row title d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6 p-0">
+      <div class="card d-flex justify-content-center align-items-center header-white" *ngIf="darkMode == false">
+        <div class="d-flex justify-content-center align-items-center ">
+          <img
+            class="img-thumbnail img-white"
+            src="assets/img/black-logo.png"
+            alt="logo sictrav"
+          />
+        </div>
+      </div>
+      <div class="card d-flex justify-content-center align-items-center" *ngIf="darkMode == true">
+        <div class="d-flex justify-content-center align-items-center ">
+          <img
+            class="img-thumbnail img-white"
+            src="assets/img/white-logo.png"
+            alt="logo sictrav"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6 p-0">
+      <form id="LoginValidation" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="card text-center">
+          <div class="card-body text-left">
+            <div
+              class="form-group has-label"
+              [ngClass]="{
+                'has-danger':
+                  loginForm.get('user')?.touched &&
+                  loginForm.get('user')?.errors
+              }"
+            >
+              <label> Usuario </label>
+              <input
+                class="form-control"
+                formControlName="user"
+                (focus)="focusTouched4 = true"
+                name="user"
+                type="text"
+              />
+              <label
+                class="error"
+                *ngIf="
+                  loginForm.get('user')?.touched &&
+                  loginForm.get('user')?.errors
+                "
+                >El campo es obligatorio.</label
+              >
+            </div>
+            <div
+              class="form-group has-label"
+              [ngClass]="{
+                'has-danger':
+                  loginForm.get('password')?.touched &&
+                  loginForm.get('password')?.errors
+              }"
+            >
+              <label>Contraseña</label>
+              <input
+                class="form-control"
+                name="password"
+                formControlName="password"
+                (focus)="focusTouched5 = true"
+                type="password"
+              />
+            </div>
+          </div>
+          <div class="card-footer text-left">
+            <button class="btn btn-danger btn-block" type="submit">
+              Ingresar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

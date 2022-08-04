@@ -1,0 +1,67 @@
+// Bootstrap Loading Skeleton
+%loading-skeleton {
+  color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #eee;
+  border-color: #eee;
+}
+@keyframes loading-skeleton {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.loading-skeleton {
+  pointer-events: none;
+  animation: loading-skeleton 1s infinite alternate;
+}
+.chartState,
+.chartTerminals,
+.chartOcupation {
+  padding: 0 !important;
+  margin: 4px 0 !important;
+}
+.card-category {
+  font-size: 17px;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .chartState {
+    padding-right: 2px !important;
+    padding-left: 0 !important;
+  }
+  .chartTerminals {
+    padding: 0 4px !important;
+  }
+  .chartOcupation {
+    margin-top: 4px !important;
+    padding-left: 2px !important;
+    padding-right: 0 !important;
+  }
+  .tableState {
+    margin: 4px 0 !important;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .chartState {
+    padding-right: 2px !important;
+    padding-left: 15px !important;
+  }
+  .chartTerminals {
+    padding: 0 4px !important;
+  }
+  .chartOcupation {
+    padding-left: 2px !important;
+    padding-right: 0 !important;
+  }
+}

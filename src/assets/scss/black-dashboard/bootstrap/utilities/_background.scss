@@ -1,0 +1,32 @@
+// stylelint-disable declaration-no-important
+
+@each $color, $value in $theme-colors {
+  @include bg-variant('.bg-#{$color}', $value);
+}
+
+@if $enable-gradients {
+  @each $color, $value in $theme-colors {
+    @include bg-gradient-variant('.bg-gradient-#{$color}', $value);
+  }
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-red-outline {
+  background-color: rgba(241, 54, 52, 0.2) !important;
+  border: 1px solid rgb(241, 54, 52);
+}
+.bg-yellow-outline {
+  background-color: rgb(173, 242, 10, 0.2) !important;
+  border: 1px solid rgb(173, 242, 10);
+}
+.bg-orange-outline {
+  background-color: rgba(242, 102, 10, 0.2) !important;
+  border: 1px solid rgb(242, 102, 10);
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}

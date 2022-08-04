@@ -1,0 +1,48 @@
+<div
+  class="content loading-skeleton w-100"
+  id="content"
+  style="margin-top: 15px !important"
+>
+  <div *ngIf="!smallDevice">
+    <div class="row m-0 p-0">
+      <div class="container-fluid p-0">
+        <!--Header-->
+        <nav
+          class="navbar navbar-expand-lg bg-dark mb-1"
+          style="z-index: 2; height: 42px"
+        >
+          <div class="container px-1"></div>
+        </nav>
+      </div>
+    </div>
+    <!--Content-->
+    <div class="mb-5">
+      <div class="container-fluid p-0">
+        <div class="card card-chart" style="height: 611px">
+          <div
+            class="fa-3x d-flex justify-content-center align-items-center h-100"
+          >
+            <i
+              class="fas fa-circle-notch fa-spin"
+              style="font-size: 4em !important"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Content Small devices-->
+  <div class="container-fluid p-0 mb-5" *ngIf="smallDevice">
+    <!--Header-->
+    <div class="card mb-1 text-center mx-auto" style="height: 188px"></div>
+
+    <div class="card card-chart py-2 p-0" style="height: 632px">
+      <div class="fa-3x d-flex justify-content-center align-items-center h-100">
+        <i
+          class="fas fa-circle-notch fa-spin"
+          style="font-size: 4em !important"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
