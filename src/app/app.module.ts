@@ -24,6 +24,7 @@ import { TableChartComponent } from "./components/skeletons/tableChart/tableChar
 
 //Pipes
 import { ImagePipe } from "./pipes/no-image.pipe";
+import { ToastrModule } from "ngx-toastr";
 
 //Extern Modules
 
@@ -43,7 +44,8 @@ import { ImagePipe } from "./pipes/no-image.pipe";
     LineChartComponent,
     TableChartComponent,
   ],
-  imports: [AppRoutingModule],
+  imports: [AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,RouterModule,
+    CommonModule, ToastrModule.forRoot()],
   bootstrap: [AppComponent],
 })
 export class AppModule {

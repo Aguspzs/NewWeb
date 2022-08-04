@@ -39,10 +39,10 @@
       <span class="navbar-toggler-bar navbar-kebab"> </span>
     </button>
 
-    <ul class="d-flex justify-content-center align-items-center mb-0" *ngIf="isLogged == true">
+    <ul class="d-flex justify-content-center align-items-center mb-0">
       <li class="d-block d-lg-flex justify-content-between align-items-center">
         <h6 class="d-none d-lg-block m-0 user-name-desktop mr-2">
-          {{ user[1] }} {{ user[2] }}
+        User Name
         </h6>
         <div class="dropdown dropdown-user" dropdown>
           <a
@@ -54,7 +54,7 @@
               class="m-0 container-icon-picture d-flex justify-content-center align-items-center"
             >
               <div class="icon-picture">
-                {{ user[3] | uppercase }}
+                UN
               </div>
             </div>
           </a>
@@ -65,7 +65,7 @@
           >
             <div class="d-flex justify-content-center align-items-center">
               <i class="fas fa-user pb-1" style="font-size: 10px"></i>
-              <small *ngIf="user"> {{ user[0] }} </small>
+              <small> username </small>
             </div>
             <hr />
 
@@ -113,7 +113,6 @@
                   <label
                     class="btn btn-sm btn-danger btn-simple active m-0 flag-label"
                     style="margin: 0 !important"
-                    (click)="changeLang('es')"
                     [ngClass]="{ active: langES === true }"
                   >
                     <input checked="checked" name="options" type="radio" />
@@ -128,7 +127,6 @@
                   <label
                     style="margin: 0 !important"
                     class="btn btn-sm btn-danger btn-simple m-0 flag-label"
-                    (click)="changeLang('en')"
                     [ngClass]="{ active: langEN === true }"
                   >
                     <input class="" name="options" type="radio" />
@@ -143,7 +141,6 @@
                   <label
                     style="margin: 0 !important"
                     class="btn btn-sm btn-danger btn-simple m-0 flag-label"
-                    (click)="changeLang('pt')"
                     [ngClass]="{ active: langPT === true }"
                   >
                     <input class="" name="options" type="radio" />

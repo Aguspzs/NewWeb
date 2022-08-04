@@ -1,2 +1,3 @@
 # Ignore .angular folder
 .angular
+node_modules

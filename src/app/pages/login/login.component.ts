@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Data } from "src/app/interfaces/login.interface";
-import { AlertsService } from "src/app/services/alerts.service";
 import { LoginService } from "src/app/services/login.service";
 
 @Component({
@@ -23,7 +22,7 @@ export class LoginComponent implements OnInit {
     public formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private alert: AlertsService
+
   ) {}
 
   ngOnInit() {
@@ -48,10 +47,10 @@ export class LoginComponent implements OnInit {
         this.loginForm.controls["password"].value === "" ||
         this.loginForm.controls["user"].value === ""
       ) {
-        this.alert.alertError(
-          "Campos faltantes",
-          "Se deben completar todos los campos requeridos."
-        );
+        // this.alert.alertError(
+        //   "Campos faltantes",
+        //   "Se deben completar todos los campos requeridos."
+        // );
       }
 
       return;
@@ -68,23 +67,23 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl("/dashboard");
             }
           } else {
-            this.alert.alertError(
-              "Error",
-              "Ingrese usuario y/o contraseña válidos"
-            );
+            // this.alert.alertError(
+            //   "Error",
+            //   "Ingrese usuario y/o contraseña válidos"
+            // );
           }
         },
         (err) => {
           if (err.status == 500) {
-            this.alert.alertError(
-              "Error",
-              "Ingrese usuario y/o contraseña válidos"
-            );
+            // this.alert.alertError(
+            //   "Error",
+            //   "Ingrese usuario y/o contraseña válidos"
+            // );
           } else {
-            this.alert.alertError(
-              "Error de conexión",
-              "Se produjo un error en la conexion con el servidor"
-            );
+            // this.alert.alertError(
+            //   "Error de conexión",
+            //   "Se produjo un error en la conexion con el servidor"
+            // );
           }
         }
       );
