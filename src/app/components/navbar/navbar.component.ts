@@ -68,6 +68,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       misc.sidebar_mini_active = false;
     }
+    if (misc.sidebar_mini_active === true) {
+      body.classList.remove("sidebar-mini");
+      misc.sidebar_mini_active = false;
+    } else {
+      body.classList.add("sidebar-mini");
+      misc.sidebar_mini_active = true;
+    }
+
     // we simulate the window Resize so the charts will get updated in realtime.
     const simulateWindowResize = setInterval(function () {
       window.dispatchEvent(new Event("resize"));
